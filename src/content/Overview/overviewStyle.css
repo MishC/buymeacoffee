@@ -1,0 +1,23 @@
+.overview {
+  margin: 100px auto;
+}
+img {
+  object-fit: cover;
+}
+.photos {
+  margin: auto;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-content: center;
+  justify-items: baseline;
+  align-content: center;
+  align-items: baseline;
+  max-width: 80vh;
+}
+/*ul {
+}*/
+li {
+  list-style: none;
+  padding: 10px 20px;
+}
