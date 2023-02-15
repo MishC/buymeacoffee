@@ -1,5 +1,5 @@
 .Header {
-  padding: 48px 24px;
+  padding: 10px 24px;
 }
 #navbar {
   display: flex;
@@ -11,7 +11,7 @@
   border-radius: 40px;
   padding: 18px 24px;
 }
-a {
+.Header a {
   color: #000;
   font-weight: 600;
   text-decoration: none;

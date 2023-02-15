@@ -3,7 +3,7 @@ import "./headerStyle.css";
 const Header = () => {
   return (
     <nav id="navbar">
-      <div>
+      <div className="Header">
         <a href="/" aria-current="page">
           <svg
             data-v-7970f380=""
@@ -76,7 +76,7 @@ const Header = () => {
           </span>
         </a>
       </div>
-      <div>
+      <div className="Header">
         <a href="https://www.buymeacoffee.com/login" class="text-dark">
           Log in
         </a>{" "}
