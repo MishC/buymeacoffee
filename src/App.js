@@ -15,7 +15,9 @@ function App() {
         <StartMyPage />
         <Overview />
       </main>
-      <footer></footer>
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 }

@@ -1,0 +1,40 @@
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-toggle {
+  background-color: transparent;
+  border: none;
+  color: #000000;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  background-color: #fafafa;
+  bottom: 100%;
+  padding: 0;
+  margin: 0;
+  min-width: "max-content";
+  white-space: nowrap;
+
+  list-style: none;
+}
+.dropdown-toggle::after {
+  display: none;
+}
+.show {
+  display: block;
+}
+
+button:hover {
+  color: #909090;
+}
+
+svg {
+  color: #909090;
+}

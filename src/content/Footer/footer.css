@@ -1,0 +1,38 @@
+.Footer {
+  padding: 48px 24px;
+}
+#footer {
+  display: flex;
+  justify-content: left;
+  justify-items: center;
+  align-items: baseline;
+  background-color: white;
+  margin: 20px;
+  border-radius: 40px;
+  padding: 18px 24px;
+  font-size: 16px;
+  font: CircularSpUIv3T-Black;
+}
+.Footer a {
+  color: #000;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0 15px;
+}
+.last {
+  margin-left: auto;
+  padding: 0 5px;
+}
+.last a {
+  padding: 5px;
+}
+.logo {
+  font-size: 20px;
+}
+svg {
+  margin-left: 5px;
+  cursor: pointer;
+}
+.drop-item:hover {
+  color: #777777;
+}

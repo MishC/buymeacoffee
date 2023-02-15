@@ -1,5 +1,8 @@
+@import url(//db.onlinewebfonts.com/c/596409e7700d7e9cd94f9df5a8b1b477?family=Circular+Sp+UI+v3+T+Black);
+
 .App {
   box-sizing: border-box;
+  padding: 0px 50px;
 }
 .App-header {
   margin-bottom: 120px;
