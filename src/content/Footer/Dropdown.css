@@ -31,10 +31,14 @@
   display: block;
 }
 
-button:hover {
+a:hover {
   color: #909090;
 }
 
 svg {
   color: #909090;
+}
+.dropdown button {
+  margin: 0.4em;
+  padding: 10px;
 }

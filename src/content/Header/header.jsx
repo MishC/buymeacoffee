@@ -1,12 +1,10 @@
-import React from "react";
 import "./headerStyle.css";
 const Header = () => {
   return (
-    <nav id="navbar">
-      <div className="Header">
+    <nav className="navbar">
+      <div className="navbar-left">
         <a href="/" aria-current="page">
           <svg
-            data-v-7970f380=""
             width="30"
             height="40"
             viewBox="0 0 25 35"
@@ -76,7 +74,7 @@ const Header = () => {
           </span>
         </a>
       </div>
-      <div className="Header">
+      <div className="navbar-right">
         <a href="https://www.buymeacoffee.com/login" class="text-dark">
           Log in
         </a>{" "}
