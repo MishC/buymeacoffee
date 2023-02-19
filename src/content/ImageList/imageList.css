@@ -1,0 +1,49 @@
+.imageList {
+  margin: 100px auto;
+}
+.btn-row {
+  max-width: 100vh;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  display: inline-block;
+  padding: 8px 12px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 4px;
+  background-color: #ddd;
+  font-size: 16px;
+  color: #333;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #aaa;
+  color: #fff;
+}
+
+.photos {
+  margin: 100px auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 100vh;
+}
+.photos img {
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+  margin: auto;
+}
+
+li {
+  list-style: none;
+  padding: 10px 20px;
+}
