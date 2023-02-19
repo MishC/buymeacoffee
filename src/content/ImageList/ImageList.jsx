@@ -11,8 +11,10 @@ images.keys().forEach((imageName) => {
 console.log(imageNames);
 
 const ImageList = () => {
-  const [selectedId, setSelectedId] = useState(null);
+  const [selectedId, setSelectedId] = useState(1);
   const [filteredImages, setFilteredImages] = useState([]);
+  const [activeBtn, setActiveBtn] = useState();
+
   console.log(filteredImages.length);
   const names = [
     { id: 1, name: "Video creators" },
@@ -33,13 +35,18 @@ const ImageList = () => {
         image.includes("@" + String(selectedId) + ".jpg")
       )
     );
+    setActiveBtn(id);
   };
 
   return (
     <div className="imageList">
       <div className="btn-row">
         {names.map(({ id, name }) => (
-          <button key={id} onClick={() => handleButtonClick(id)}>
+          <button
+            key={id}
+            onClick={() => handleButtonClick(id)}
+            className={`${selectedId === id ? " active" : ""}`}
+          >
             {name}
           </button>
         ))}

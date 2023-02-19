@@ -13,25 +13,31 @@
 
 button {
   display: inline-block;
+
   padding: 8px 12px;
   margin: 0 5px;
   border: none;
-  border-radius: 4px;
-  background-color: #ddd;
+  border-radius: 10px;
   font-size: 16px;
+  background-color: #fff;
+
   color: #333;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 button:hover {
-  background-color: #aaa;
-  color: #fff;
+  background-color: #ddd;
+}
+.active {
+  background-color: #ddd;
 }
 
 .photos {
-  margin: 100px auto;
+  margin: 50px auto;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
