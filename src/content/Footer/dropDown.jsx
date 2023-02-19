@@ -19,7 +19,7 @@ function Dropdown({ name, links }) {
         {showDropdown ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="26"
+            Width="26"
             height="26"
             viewBox="0 0 26 26"
             fill="none"
@@ -33,7 +33,7 @@ function Dropdown({ name, links }) {
         ) : (
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="26"
+            Width="26"
             height="26"
             viewBox="0 0 26 26"
             fill="none"

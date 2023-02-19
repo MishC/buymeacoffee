@@ -3,7 +3,8 @@ import "./App.css";
 
 import Header from "./content/Header/header.jsx";
 import StartMyPage from "./content/startMyPage/startMyPage.jsx";
-import Overview from "./content/Overview/overview.jsx";
+//import Overview from "./content/ImageList/ImageList.jsx";
+import ImageList from "./content/ImageList/ImageList";
 import Footer from "./content/Footer/footer.jsx";
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
       </header>
       <main>
         <StartMyPage />
-        <Overview />
+        <ImageList />
       </main>
       <footer>
         <Footer />

@@ -64,3 +64,9 @@
     flex-grow: unset;
   }
 }
+
+@media only screen and (max-width: 500px) {
+  .navbar {
+    position: static;
+  }
+}

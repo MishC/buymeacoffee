@@ -5,7 +5,7 @@ const Header = () => {
       <div className="navbar-left">
         <a href="/" aria-current="page">
           <svg
-            width="30"
+            Width="30"
             height="40"
             viewBox="0 0 25 35"
             fill="none"
@@ -70,17 +70,17 @@ const Header = () => {
         </a>
         <a href="/">
           <span data-v-7970f380="">
-            Explore <span class="xxs:hidden">creators</span>
+            Explore <span className="xxs:hidden">creators</span>
           </span>
         </a>
       </div>
       <div className="navbar-right">
-        <a href="https://www.buymeacoffee.com/login" class="text-dark">
+        <a href="https://www.buymeacoffee.com/login" className="text-dark">
           Log in
         </a>{" "}
         <a
           href="https://www.buymeacoffee.com/signup"
-          class="bg-yellow text-dark"
+          className="bg-yellow text-dark"
         >
           <span className="signUp">Sign up</span>
         </a>
