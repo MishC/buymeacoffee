@@ -6,6 +6,7 @@ import StartMyPage from "./content/startMyPage/startMyPage.jsx";
 //import Overview from "./content/ImageList/ImageList.jsx";
 import ImageList from "./content/ImageList/ImageList";
 import Footer from "./content/Footer/footer.jsx";
+import Sticky from "./content/Sticky/sticky.jsx";
 function App() {
   return (
     <div className="App">
@@ -15,6 +16,7 @@ function App() {
       <main>
         <StartMyPage />
         <ImageList />
+        <Sticky />
       </main>
       <footer>
         <Footer />

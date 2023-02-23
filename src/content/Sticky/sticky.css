@@ -1,0 +1,16 @@
+/*fixed cursor-pointer bg-dark 
+flex justify-center 
+items-center bottom-50 right-64 w-48 h-48 xs:bottom-24 xs:right-24 rounded-full*/
+.question {
+  position: fixed;
+  bottom: 50px;
+  right: 80px;
+  width: 54px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background: #000;
+}
