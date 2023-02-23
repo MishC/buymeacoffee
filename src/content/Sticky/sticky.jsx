@@ -7,7 +7,7 @@ const Sticky = () => {
       <svg
         data-v-e24b3c4c=""
         height="18"
-        viewBox="0 0 14 22"
+        viewBox="0 0 18 22"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
