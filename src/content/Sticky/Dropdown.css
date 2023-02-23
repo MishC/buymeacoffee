@@ -1,0 +1,54 @@
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-toggle {
+  background-color: transparent;
+  border: none;
+  /* color: #000000; */
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  background-color: #fafafa;
+  bottom: 100%;
+  padding: 0 20px;
+  right: 0%;
+  margin-right: 0;
+  min-width: fit-content;
+  white-space: nowrap;
+
+  list-style: none;
+  font-size: 1.5em;
+  line-height: 2.5;
+}
+.dropdown-toggle::after {
+  display: none;
+}
+.show {
+  display: block;
+}
+
+.faq,
+.req,
+.help {
+  color: #909090;
+}
+
+.faq:hover,
+.req:hover,
+.help:hover {
+  color: #000;
+  background: #e2e2e2;
+}
+
+.faq:hover svg path:first-child,
+.req:hover svg path,
+.help:hover svg path {
+  fill: #000;
+}
