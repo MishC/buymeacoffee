@@ -47,7 +47,11 @@ function Dropdown({ name, links }) {
         )}
       </button>
       {links ? (
-        <ul className={`dropdown-menu ${showDropdown ? "show" : ""}`}>
+        <ul
+          className={`dropdown-menu shadow p-3 mb-5 bg-white rounded ${
+            showDropdown ? "show" : ""
+          }`}
+        >
           {links.map((link, index) => (
             <li key={index} style={{ maxWidth: "max-content" }}>
               {link}

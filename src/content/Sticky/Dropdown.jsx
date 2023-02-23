@@ -27,7 +27,11 @@ function Dropdown({ name, links }) {
         </ul>
       ) : ( */}
       {links ? (
-        <div className={`dropdown-menu ${showDropdown ? "show" : ""}`}>
+        <div
+          className={`dropdown-menu shadow p-3 mb-5 bg-white rounded ${
+            showDropdown ? "show" : ""
+          }`}
+        >
           {links}
         </div>
       ) : (
