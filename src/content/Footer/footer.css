@@ -72,7 +72,7 @@ svg {
     justify-content: center;
     justify-items: center;
     flex-grow: unset;
-    flex-wrap: wrap;
+    flex-wrap: wrap-reverse;
     padding: 5px;
   }
 }

@@ -54,3 +54,8 @@ li {
   list-style: none;
   padding: 10px 20px;
 }
+
+figure {
+  text-align: center;
+  margin: 0 auto;
+}

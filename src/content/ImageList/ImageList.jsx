@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "./imageList.css";
+import description from "./images_list/description.js";
 
 //importing images from ./image_list
 const imageNames = [];
 const images = require.context("./images_list", false, /\.(png|jpe?g|svg)$/);
-
 images.keys().forEach((imageName) => {
   imageNames.push(imageName.replace("./", ""));
 });
@@ -13,9 +13,8 @@ console.log(imageNames);
 const ImageList = () => {
   const [selectedId, setSelectedId] = useState(1);
   const [filteredImages, setFilteredImages] = useState([]);
-  const [activeBtn, setActiveBtn] = useState();
-
-  console.log(filteredImages.length);
+  const [imageText, setImageText] = useState([]);
+  console.log(description.creators[0]);
   const names = [
     { id: 1, name: "Video creators" },
     { id: 2, name: "Artists" },
@@ -28,14 +27,13 @@ const ImageList = () => {
     { id: 8, name: "Community" },
   ];
 
-  const handleButtonClick = (id) => {
+  const handleButtonClick = (id, imageNames) => {
     setSelectedId(id);
     setFilteredImages(
       imageNames.filter((image) =>
         image.includes("@" + String(selectedId) + ".jpg")
       )
     );
-    setActiveBtn(id);
   };
 
   return (
@@ -44,7 +42,7 @@ const ImageList = () => {
         {names.map(({ id, name }) => (
           <button
             key={id}
-            onClick={() => handleButtonClick(id)}
+            onClick={() => handleButtonClick(id, imageNames)}
             className={`${selectedId === id ? " active" : ""}`}
           >
             {name}
@@ -54,20 +52,25 @@ const ImageList = () => {
       <div className="photos">
         {filteredImages.length > 0
           ? filteredImages.map((imageName) => (
-              <img
-                key={imageName}
-                src={require(`./images_list/${imageName}`)}
-                alt={imageName}
-              />
-            ))
-          : imageNames
-              .filter((imageName) => imageName.includes("@1.jpg"))
-              .map((imageName) => (
+              <figure key={imageName}>
                 <img
-                  key={imageName}
                   src={require(`./images_list/${imageName}`)}
                   alt={imageName}
                 />
+                <figcaption></figcaption>
+              </figure>
+            ))
+          : imageNames
+              .filter((imageName) => imageName.includes("@1.jpg"))
+              .map((imageName, index) => (
+                <figure key={imageName}>
+                  <img
+                    key={index}
+                    src={require(`./images_list/${imageName}`)}
+                    alt={imageName}
+                  />
+                  <figcaption></figcaption>
+                </figure>
               ))}
       </div>
       <div></div>
