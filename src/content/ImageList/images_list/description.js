@@ -59,5 +59,41 @@ export default {
         "CodeBeauty is a Software Engineer who teaches you how to write beautiful code! 💻&zwj;✨",
       ],
     },
+    {
+      id: 6,
+      text: [
+        "Stephanie Eckles (5t3ph) is the author of ModernCSS.dev, StyleStage.dev, 11ty.Rocks",
+
+        "Luke Tsekouras is enabling fun with friends",
+
+        "TooLiPHoNe.NeT is customizing iOS without jailbreak 😎",
+
+        "CodeBeauty is a Software Engineer who teaches you how to write beautiful code! 💻&zwj;✨",
+      ],
+    },
+    {
+      id: 7,
+      text: [
+        "Stephanie Eckles (5t3ph) is the author of ModernCSS.dev, StyleStage.dev, 11ty.Rocks",
+
+        "Luke Tsekouras is enabling fun with friends",
+
+        "TooLiPHoNe.NeT is customizing iOS without jailbreak 😎",
+
+        "CodeBeauty is a Software Engineer who teaches you how to write beautiful code! 💻&zwj;✨",
+      ],
+    },
+    {
+      id: 8,
+      text: [
+        "iic_official is Interior Community",
+
+        "The AntiRacist Table is a creator of AntiRacist resources and community for all!",
+
+        "AlwaysBeBirdinPodcast is Creating community and uplifting BIPOC birders",
+
+        "wearewildness is creating art, challenges, and community to inspire Nature connection",
+      ],
+    },
   ],
 };

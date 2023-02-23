@@ -8,13 +8,13 @@ const images = require.context("./images_list", false, /\.(png|jpe?g|svg)$/);
 images.keys().forEach((imageName) => {
   imageNames.push(imageName.replace("./", ""));
 });
-console.log(imageNames);
+//console.log(imageNames);
 
 const ImageList = () => {
   const [selectedId, setSelectedId] = useState(1);
   const [filteredImages, setFilteredImages] = useState([]);
   const [imageText, setImageText] = useState([]);
-  //console.log(description.creators[0]);
+
   const names = [
     { id: 1, name: "Video creators" },
     { id: 2, name: "Artists" },
@@ -29,10 +29,9 @@ const ImageList = () => {
 
   const handleButtonClick = (id, imageNames) => {
     setSelectedId(id);
+    console.log(selectedId);
     setFilteredImages(
-      imageNames.filter((image) =>
-        image.includes("@" + String(selectedId) + ".jpg")
-      )
+      imageNames.filter((image) => image.includes("@" + selectedId + ".jpg"))
     );
   };
 
@@ -50,7 +49,7 @@ const ImageList = () => {
         ))}
       </div>
       <div className="photos">
-        {filteredImages.length > 0
+        {filteredImages.length > 1
           ? filteredImages.map((imageName, index) => (
               <figure key={imageName}>
                 <img
@@ -58,7 +57,18 @@ const ImageList = () => {
                   alt={imageName}
                 />
                 <figcaption>
-                  {description.creators[selectedId].text[index]}
+                  <span className="firstWord">
+                    {selectedId}
+                    {description.creators[selectedId - 1].text[index].split(
+                      " "
+                    )[0] + " "}
+                  </span>
+                  {"  " +
+                    description.creators[selectedId - 1].text[index].slice(
+                      description.creators[selectedId - 1].text[index].indexOf(
+                        " "
+                      ) + 1
+                    )}
                 </figcaption>
               </figure>
             ))
@@ -72,7 +82,15 @@ const ImageList = () => {
                     alt={imageName}
                   />
 
-                  <figcaption>{description.creators[0].text[index]}</figcaption>
+                  <figcaption>
+                    <span className="firstWord">
+                      {description.creators[0].text[index].split(" ")[0] + " "}
+                    </span>{" "}
+                    {"  " +
+                      description.creators[0].text[index].slice(
+                        description.creators[0].text[index].indexOf(" ") + 1
+                      )}
+                  </figcaption>
                 </figure>
               ))}
       </div>

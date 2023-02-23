@@ -2,7 +2,7 @@
   margin: 100px auto;
 }
 .btn-row {
-  max-width: 100vh;
+  max-width: 100vw;
   margin: auto;
   display: flex;
   flex-direction: row;
@@ -60,12 +60,11 @@ figure {
   margin: 0 auto;
   text-justify: justify;
 }
-figcaption {
-  display: flex;
-  justify-content: flex-start;
+figcaption,
+figcaption span {
   max-width: 200px;
   text-align: left;
 }
-figcaption:first-word {
-  font-weight: 700;
+.firstWord {
+  font-weight: bold;
 }
