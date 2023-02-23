@@ -31,7 +31,7 @@ const ImageList = () => {
     setSelectedId(id);
     console.log(selectedId);
     setFilteredImages(
-      imageNames.filter((image) => image.includes("@" + selectedId + ".jpg"))
+      imageNames.filter((image) => image.includes("@" + id + ".jpg"))
     );
   };
 
