@@ -14,7 +14,7 @@ const ImageList = () => {
   const [selectedId, setSelectedId] = useState(1);
   const [filteredImages, setFilteredImages] = useState([]);
   const [imageText, setImageText] = useState([]);
-  console.log(description.creators[0]);
+  //console.log(description.creators[0]);
   const names = [
     { id: 1, name: "Video creators" },
     { id: 2, name: "Artists" },
@@ -51,13 +51,15 @@ const ImageList = () => {
       </div>
       <div className="photos">
         {filteredImages.length > 0
-          ? filteredImages.map((imageName) => (
+          ? filteredImages.map((imageName, index) => (
               <figure key={imageName}>
                 <img
                   src={require(`./images_list/${imageName}`)}
                   alt={imageName}
                 />
-                <figcaption></figcaption>
+                <figcaption>
+                  {description.creators[selectedId].text[index]}
+                </figcaption>
               </figure>
             ))
           : imageNames
@@ -69,7 +71,8 @@ const ImageList = () => {
                     src={require(`./images_list/${imageName}`)}
                     alt={imageName}
                   />
-                  <figcaption></figcaption>
+
+                  <figcaption>{description.creators[0].text[index]}</figcaption>
                 </figure>
               ))}
       </div>

@@ -58,4 +58,14 @@ li {
 figure {
   text-align: center;
   margin: 0 auto;
+  text-justify: justify;
+}
+figcaption {
+  display: flex;
+  justify-content: flex-start;
+  max-width: 200px;
+  text-align: left;
+}
+figcaption:first-word {
+  font-weight: 700;
 }
