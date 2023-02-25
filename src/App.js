@@ -1,26 +1,19 @@
 import React from "react";
 import "./App.css";
-
-import Header from "./content/Header/header.jsx";
-import StartMyPage from "./content/startMyPage/startMyPage.jsx";
-//import Overview from "./content/ImageList/ImageList.jsx";
-import ImageList from "./content/ImageList/ImageList";
-import Footer from "./content/Footer/footer.jsx";
-import Sticky from "./content/Sticky/sticky.jsx";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./content/Home/Home";
+import SignUp from "./content/SignUp/signUp";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <Header />
-      </header>
       <main>
-        <StartMyPage />
-        <ImageList />
-        <Sticky />
+        <Router>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/signup" element={<SignUp />} />
+          </Routes>
+        </Router>
       </main>
-      <footer>
-        <Footer />
-      </footer>
     </div>
   );
 }
