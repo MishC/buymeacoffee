@@ -1,7 +1,17 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+
 import "./startMyPage.css";
 
 const startMyPage = () => {
+  const navigate = useNavigate();
+
+  function handleClick() {
+    navigate("/signup");
+
+    // Replace '/signup' with the URL of your signup/login page
+  }
+
   return (
     <div className="startMyPage">
       <h1>A supporter is worth a thousand followers.</h1>
@@ -12,12 +22,10 @@ const startMyPage = () => {
       <div className="makePage border ">
         <span className="">buymeacoffee.com/</span>
         <input className="" placeholder="yourname" />
-        <button className="btn">
+        <button className="btn" onClick={handleClick}>
           <span className=" inline-flex relative">
             {" "}
-            <h3>
-              Start my page<span></span>
-            </h3>
+            <h3>Start my page</h3>
           </span>
         </button>
       </div>
