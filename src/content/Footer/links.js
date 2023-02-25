@@ -1,9 +1,11 @@
+import React from "react";
+
 export function link1() {
   return (
     <a
       href="https://play.google.com/store/apps/details?id=app.buymeacoffee"
       target="_blank"
-      rel="noreferrer"
+      rel="noreferrer noopener"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
