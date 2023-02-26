@@ -102,7 +102,7 @@ const signUp = () => {
         </form>
         <div className="breakFlow">
           <hr />
-          <span>or signup with</span>
+          <span className="mx-4">or signup with</span>
           <hr />
         </div>
         <div class="signUpButtons">
