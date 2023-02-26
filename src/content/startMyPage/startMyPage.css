@@ -1,3 +1,7 @@
+/*@font-face {
+  font-family: Circular-Bold;
+  src: url("../../assets/fonts/CircularStd-Bold.eot");
+} */
 .startMyPage {
   margin-top: auto;
 }
@@ -35,16 +39,16 @@ h3 {
   font-size: x-large;
   font-weight: bold;
 }
-input {
+.startMyPage input {
   border-radius: 40px;
   border: none;
   margin: auto;
   max-width: 20vw;
 }
-input:hover,
-input:focus,
-input:focus-visible,
-input:active {
+.startMyPage input:hover,
+.startMyPage input:focus,
+.startMyPage input:focus-visible,
+.startMyPage input:active {
   border: none;
 
   outline: none;
