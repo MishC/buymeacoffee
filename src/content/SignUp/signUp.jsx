@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import "./signUp.css";
 import Navbar from "../Navigation/navigation";
 
 import Sticky from "../Sticky/sticky.jsx";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 import {
   signInWithPopup,
@@ -16,6 +17,7 @@ import { auth } from "../../utils/firebase";
 
 const signUp = () => {
   const navigate = useNavigate();
+  const [user, loading] = useAuthState(auth);
 
   /////
   const googleProvider = new GoogleAuthProvider();
@@ -46,6 +48,13 @@ const signUp = () => {
       console.log(error);
     }
   };
+  useEffect(() => {
+    if (user) {
+      navigate("/yourpage");
+    } else {
+      console.log("login");
+    }
+  }, [user]);
 
   /////////
   return (
