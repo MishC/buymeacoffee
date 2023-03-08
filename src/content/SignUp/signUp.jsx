@@ -1,44 +1,56 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+
 import "./signUp.css";
-import coffeeIcon from "../../assets/SVGs/coffeeIcon";
+import Navbar from "../Navigation/navigation";
+
 import Sticky from "../Sticky/sticky.jsx";
 
 import {
   signInWithPopup,
   GoogleAuthProvider,
-  //FacebookAuthProvider,
+  FacebookAuthProvider,
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../../utils/firebase";
 
 const signUp = () => {
+  const navigate = useNavigate();
+
+  /////
   const googleProvider = new GoogleAuthProvider();
+  ///////
   const GoogleLogin = async () => {
     try {
       const result = await signInWithPopup(auth, googleProvider);
       console.log(result.user);
+      navigate("/yourpage");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  ///////
+
+  const fbProvider = new FacebookAuthProvider();
+  const FacebookProvider = async () => {
+    try {
+      const result = await signInWithPopup(auth, fbProvider);
+      const credantial = await FacebookAuthProvider.credentialFromResult(
+        result
+      );
+      const token = credantial.accessToken;
+      let photoUrl = result.user.photoURL + "?height=500&access_token=" + token;
+      await updateProfile(auth.currentUser, { photoURL: photoUrl });
+      navigate("/yourpage");
     } catch (error) {
       console.log(error);
     }
   };
 
+  /////////
   return (
     <div className="signUp">
-      <nav>
-        <div>
-          {" "}
-          <a href="https://www.buymeacoffee.com/"></a>
-          <svg>
-            {" "}
-            <coffeeIcon />
-          </svg>
-        </div>
-        <div>
-          <span class="roman">Already have an account? &nbsp;</span>
-
-          <button>Login</button>
-        </div>
-      </nav>
+      <Navbar />
       <main>
         <h3>Sign Up</h3>
         <form>
@@ -116,7 +128,7 @@ const signUp = () => {
             </svg>
             <span className="ml-5">Sign up with Google</span>
           </button>
-          <button>
+          <button onClick={FacebookProvider}>
             {" "}
             <svg
               width="24"
