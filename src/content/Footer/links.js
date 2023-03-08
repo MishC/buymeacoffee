@@ -5,7 +5,7 @@ export function link1() {
     <a
       href="https://play.google.com/store/apps/details?id=app.buymeacoffee"
       target="_blank"
-      rel="noreferrer noopener"
+      rel="noopener noreferrer noopener"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -34,7 +34,7 @@ export function link2() {
     <a
       href="https://apps.apple.com/in/app/buy-me-a-coffee/id1480229954"
       target="_blank"
-      rel="noreferrer"
+      rel="noopener noreferrer"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -61,7 +61,7 @@ export function link3() {
     <a
       href="https://building.buymeacoffee.com/feature-requests"
       target="_blank"
-      rel="noreferrer"
+      rel="noopener noreferrer"
     >
       Feature requests
     </a>
@@ -72,7 +72,7 @@ export function link4() {
     <a
       href="https://www.buymeacoffee.com/brand"
       target="_blank"
-      rel="noreferrer"
+      rel="noopener noreferrer"
     >
       Buttons
     </a>
@@ -83,7 +83,7 @@ export function link5() {
     <a
       href="https://www.buymeacoffee.com/ko-fi-alternative"
       target="_blank"
-      rel="noreferrer"
+      rel="noopener noreferrer"
     >
       Ko-fi comparison
     </a>
@@ -94,7 +94,7 @@ export function link6() {
     <a
       href="https://www.buymeacoffee.com/patreon-alternative"
       target="_blank"
-      rel="noreferrer"
+      rel="noopener noreferrer"
     >
       Patreon comparison
     </a>
@@ -102,7 +102,7 @@ export function link6() {
 }
 export function link7() {
   return (
-    <a href="https://bio.link/" target="_blank" rel="noreferrer">
+    <a href="https://bio.link/" target="_blank" rel="noopener noreferrer">
       Link in Bio
     </a>
   );
