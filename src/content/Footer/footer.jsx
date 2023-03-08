@@ -14,7 +14,7 @@ const footer = () => {
         <a
           href="https://help.buymeacoffee.com/en/"
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
         >
           Help Center
         </a>
@@ -24,7 +24,7 @@ const footer = () => {
           links={[link3(), link4(), link5(), link6(), link7()]}
         />
         <a href="https://www.buymeacoffee.com/privacy-policy">Privacy</a>{" "}
-        <a href="https://www.buymeacoffee.com/terms" rel="noreferrer">
+        <a href="https://www.buymeacoffee.com/terms" rel="noopener noreferrer">
           Terms
         </a>
       </div>
@@ -34,7 +34,7 @@ const footer = () => {
         <a
           href="https://www.youtube.com/buymeacoffee"
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
         >
           <svg
             Width="28"
@@ -74,7 +74,7 @@ const footer = () => {
         <a
           href="https://twitter.com/buymeacoffee"
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
         >
           <svg
             Width="28"
