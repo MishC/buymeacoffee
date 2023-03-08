@@ -8,8 +8,6 @@ const startMyPage = () => {
 
   function handleClick() {
     navigate("/signup");
-
-    // Replace '/signup' with the URL of your signup/login page
   }
 
   return (
