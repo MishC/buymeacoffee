@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./sticky.css";
 import Dropdown from "./Dropdown";
 import { name, linksSticky } from "./links_sticky.js";
