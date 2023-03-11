@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../Navigation/Navigation";
+import Navigation from "../Navigation/Navigation";
 import { useNavigate } from "react-router-dom";
 
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -15,7 +15,7 @@ export default function YourPage() {
   if (user) {
     return (
       <div>
-        <Navbar />
+        <Navigation />
         <h1>Complete your page</h1>
       </div>
     );
