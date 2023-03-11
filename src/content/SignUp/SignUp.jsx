@@ -12,14 +12,14 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   FacebookAuthProvider,
-  TwitterAuthProvider,
+  //TwitterAuthProvider,
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../../utils/firebase";
 
 const SignUp = () => {
   const navigate = useNavigate();
-  const [user, loading] = useAuthState(auth);
+  const [user] = useAuthState(auth);
 
   /////
   const googleProvider = new GoogleAuthProvider();
@@ -52,31 +52,31 @@ const SignUp = () => {
   };
   ////////////////////////////
 
-  const Twitterprovider = new TwitterAuthProvider();
-  const TwitterLogIn = signInWithPopup(auth, Twitterprovider)
-    .then((result) => {
-      // This gives you a the Twitter OAuth 1.0 Access Token and Secret.
-      // You can use these server side with your app's credentials to access the Twitter API.
-      const credential = TwitterAuthProvider.credentialFromResult(result);
-      const token = credential.accessToken;
-      const secret = credential.secret;
+  // const Twitterprovider = new TwitterAuthProvider();
+  // const TwitterLogIn = signInWithPopup(auth, Twitterprovider)
+  //   .then((result) => {
+  //     // This gives you a the Twitter OAuth 1.0 Access Token and Secret.
+  //     // You can use these server side with your app's credentials to access the Twitter API.
+  //     const credential = TwitterAuthProvider.credentialFromResult(result);
+  //     const token = credential.accessToken;
+  //     const secret = credential.secret;
 
-      // The signed-in user info.
-      const user = result.user;
-      // IdP data available using getAdditionalUserInfo(result)
-      // ...
-    })
-    .catch((error) => {
-      // Handle Errors here.
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      // The email of the user's account used.
-      const email = error.customData.email;
-      // The AuthCredential type that was used.
-      const credential = TwitterAuthProvider.credentialFromError(error);
-      // ...
-    });
-  ///////////////////
+  //     // The signed-in user info.
+  //     const user = result.user;
+  //     // IdP data available using getAdditionalUserInfo(result)
+  //     // ...
+  //   })
+  //   .catch((error) => {
+  //     // Handle Errors here.
+  //     const errorCode = error.code;
+  //     const errorMessage = error.message;
+  //     // The email of the user's account used.
+  //     const email = error.customData.email;
+  //     // The AuthCredential type that was used.
+  //     const credential = TwitterAuthProvider.credentialFromError(error);
+  //     // ...
+  //   });
+  // ///////////////////
   useEffect(() => {
     if (user) {
       navigate("/yourpage");

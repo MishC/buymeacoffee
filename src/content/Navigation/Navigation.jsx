@@ -1,15 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../utils/firebase";
 
 const Navigation = () => {
-  const [user, loading] = useAuthState(auth);
+  const [user] = useAuthState(auth);
   return (
     <nav>
       <div>
         {" "}
-        <a href="https://www.buymeacoffee.com/"></a>
-        <svg> {/* <coffeeIcon /> */}</svg>
+        <a href="https://www.buymeacoffee.com/">
+          <svg> {/* <coffeeIcon /> */}</svg>
+        </a>
       </div>
       {user ? (
         <div>

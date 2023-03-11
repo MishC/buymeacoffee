@@ -13,7 +13,7 @@ images.keys().forEach((imageName) => {
 const ImageList = () => {
   const [selectedId, setSelectedId] = useState(1);
   const [filteredImages, setFilteredImages] = useState([]);
-  const [imageText, setImageText] = useState([]);
+  //const [imageText, setImageText] = useState([]);
 
   const names = [
     { id: 1, name: "Video creators" },
