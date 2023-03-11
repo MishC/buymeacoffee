@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./imageList.css";
+import "./ImageList.css";
 import description from "./images_list/description.js";
 
 //importing images from ./image_list

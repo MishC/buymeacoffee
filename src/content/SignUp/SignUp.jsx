@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 import { useNavigate } from "react-router-dom";
 
-import "./signUp.css";
+import "./SignUp.css";
 import Navigation from "../Navigation/Navigation.jsx";
 
 import Sticky from "../Sticky/Sticky.jsx";
