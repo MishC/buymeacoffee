@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 
 import { useNavigate } from "react-router-dom";
-import { Component } from "react";
 
 import "./signUp.css";
 import Navigation from "../Navigation/Navigation.jsx";

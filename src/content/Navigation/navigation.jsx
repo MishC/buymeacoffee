@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../utils/firebase";
 
-export default function Navigation() {
+const Navigation = () => {
   const [user, loading] = useAuthState(auth);
   return (
     <nav>
@@ -24,4 +24,6 @@ export default function Navigation() {
       )}
     </nav>
   );
-}
+};
+
+export default Navigation;
