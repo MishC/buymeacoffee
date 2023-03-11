@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import "./startMyPage.css";
 
-const startMyPage = () => {
+const StartMyPage = () => {
   const navigate = useNavigate();
 
   function handleClick() {
@@ -31,4 +31,4 @@ const startMyPage = () => {
     </div>
   );
 };
-export default startMyPage;
+export default StartMyPage;

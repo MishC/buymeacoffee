@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import "./signUp.css";
-import Navbar from "../Navigation/navigation";
+import Navbar from "../Navigation/Navigation";
 
-import Sticky from "../Sticky/sticky.jsx";
+import Sticky from "../Sticky/Sticky.jsx";
 import { useAuthState } from "react-firebase-hooks/auth";
 
 import {

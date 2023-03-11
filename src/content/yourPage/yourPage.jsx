@@ -1,11 +1,11 @@
 import React from "react";
-import Navbar from "../Navigation/navigation";
+import Navbar from "../Navigation/Navigation";
 import { useNavigate } from "react-router-dom";
 
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../utils/firebase";
 
-export default function yourPage() {
+export default function YourPage() {
   const [user, loading] = useAuthState(auth);
   const navigate = useNavigate();
 

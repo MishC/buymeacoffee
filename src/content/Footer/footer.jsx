@@ -4,7 +4,7 @@ import "./footer.css";
 import Dropdown from "./dropDown";
 import { link1, link2, link3, link4, link5, link6, link7 } from "./links";
 
-const footer = () => {
+const Footer = () => {
   return (
     <div className="footer">
       <div className="footer-left">
@@ -93,4 +93,4 @@ const footer = () => {
     </div>
   );
 };
-export default footer;
+export default Footer;
