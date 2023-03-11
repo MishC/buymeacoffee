@@ -1,11 +1,11 @@
 import React from "react";
 
-import Header from "../Header/Header.jsx";
+import Header from "../Header/Header";
 import StartMyPage from "../startMyPage/StartMyPage";
 //import Overview from "../ImageList/ImageList.jsx";
 import ImageList from "../ImageList/ImageList";
-import Footer from "../Footer/Footer.jsx";
-import Sticky from "../Sticky/Sticky.jsx";
+import Footer from "../Footer/Footer";
+import Sticky from "../Sticky/Sticky";
 
 const Home = () => {
   return (
