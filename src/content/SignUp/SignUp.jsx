@@ -17,7 +17,7 @@ import {
 } from "firebase/auth";
 import { auth } from "../../utils/firebase";
 
-const signUp = () => {
+const SignUp = () => {
   const navigate = useNavigate();
   const [user, loading] = useAuthState(auth);
 
@@ -216,4 +216,4 @@ const signUp = () => {
     </div>
   );
 };
-export default signUp;
+export default SignUp;
