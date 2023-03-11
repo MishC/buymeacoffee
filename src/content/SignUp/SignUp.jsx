@@ -83,7 +83,7 @@ const SignUp = () => {
     } else {
       console.log("login");
     }
-  }, [user]);
+  }, [user, navigate]);
 
   /////////
 
