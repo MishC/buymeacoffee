@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import Navigation from "../Navigation/Navigation.jsx";
 import { useNavigate } from "react-router-dom";
 

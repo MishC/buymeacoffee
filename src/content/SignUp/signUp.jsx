@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
+
 import { useNavigate } from "react-router-dom";
+import { Component } from "react";
 
 import "./signUp.css";
-import Navbar from "../Navigation/Navigation.jsx";
+import Navigation from "../Navigation/Navigation.jsx";
 
 import Sticky from "../Sticky/Sticky.jsx";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -88,7 +90,7 @@ const signUp = () => {
 
   return (
     <div className="signUp">
-      <Navbar />
+      <Navigation />
       <main>
         <h3>Sign Up</h3>
         <form>
