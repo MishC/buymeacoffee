@@ -50,6 +50,6 @@ h3 {
 .startMyPage input:focus-visible,
 .startMyPage input:active {
   border: none;
-
+   
   outline: none;
 }
