@@ -1,5 +1,4 @@
 import React from "react";
-
 import Header from "../Header/Header";
 import StartMyPage from "../startMyPage/StartMyPage";
 //import Overview from "../ImageList/ImageList.jsx";
@@ -22,4 +21,5 @@ const Home = () => {
       </footer>
     </div>
   );
-  
+};
+export default Home;

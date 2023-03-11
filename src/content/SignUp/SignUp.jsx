@@ -53,7 +53,7 @@ const signUp = () => {
   ////////////////////////////
 
   const Twitterprovider = new TwitterAuthProvider();
-  signInWithPopup(auth, Twitterprovider)
+  const TwitterLogIn = signInWithPopup(auth, Twitterprovider)
     .then((result) => {
       // This gives you a the Twitter OAuth 1.0 Access Token and Secret.
       // You can use these server side with your app's credentials to access the Twitter API.
