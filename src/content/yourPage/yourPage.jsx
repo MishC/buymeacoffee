@@ -1,5 +1,5 @@
 import React from "react";
-import Navigation from "../Navigation/Navigation";
+import Navigation from "../Navigation/Navigation.jsx";
 import { useNavigate } from "react-router-dom";
 
 import { useAuthState } from "react-firebase-hooks/auth";
