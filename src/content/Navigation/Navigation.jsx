@@ -1,7 +1,7 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../utils/firebase";
-
+import CoffeeIcon from "../../assets/SVGs/CoffeeIcon";
 const Navigation = () => {
   const [user] = useAuthState(auth);
   return (
@@ -9,7 +9,7 @@ const Navigation = () => {
       <div>
         {" "}
         <a href="https://www.buymeacoffee.com/">
-          <svg> {/* <coffeeIcon /> */}</svg>
+          <CoffeeIcon />
         </a>
       </div>
       {user ? (
