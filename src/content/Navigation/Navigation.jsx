@@ -8,7 +8,7 @@ const Navigation = () => {
     <nav>
       <div>
         {" "}
-        <a href="https://www.buymeacoffee.com/">
+        <a href="/">
           <CoffeeIcon />
         </a>
       </div>
