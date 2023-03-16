@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 
@@ -20,42 +20,21 @@ import {
 const SignUp = () => {
   const navigate = useNavigate();
   const [user] = useAuthState(auth);
+  const ref = useRef(null);
 
-  ////
-  const EmailLogIn = async () => {
-    //   if (isSignInWithEmailLink(auth, window.location.href)) {
-    // Additional state parameters can also be passed via URL.
-    // This can be used to continue the user's intended action before triggering
-    // the sign-in operation.
-    // Get the email if available. This should be available if the user completes
-    // the flow on the same device where they started it.
-    // let email = window.localStorage.getItem('emailForSignIn');
-    // if (!email) {
-    //   User opened the link on a different device. To prevent session fixation
-    //   attacks, ask the user to provide the associated email again. For example:
-    //   email = window.prompt('Please provide your email for confirmation');
-    // }
-    // The client SDK will parse the code from the link for you.
-    // signInWithEmailLink(auth, email, window.location.href)
-    //   .then((result) => {
-    //     Clear email from storage.
-    //     window.localStorage.removeItem('emailForSignIn');
-    //     You can access the new user via result.user
-    //     Additional user info profile not available via:
-    //     result.additionalUserInfo.profile == null
-    //     You can check if the user is new or existing:
-    //     if ( !result.additionalUserInfo.isNewUser) {}
-    //   })
-    //   .catch((error) => {
-    //     Some error occurred, you can inspect the code: error.code
-    //     console.log(error.ccode);
-    // Common errors could be invalid email and invalid or expired OTPs.
-    //  });
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [inUse, setInUse] = useState("");
 
+  ////////////////////////////////////////////////////////////////////////////////////////
+
+  const EmailSignUp = async (e) => {
+    e.preventDefault();
     await createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
+        navigate("/yourpage");
 
         // ...
       })
@@ -63,15 +42,16 @@ const SignUp = () => {
         const errorCode = error.code;
         const errorMessage = error.message;
         if (error.code === "auth/email-already-in-use") {
-          alert("User already signed up with that email");
+          setInUse(
+            "An account with this email already exists. Please try to log in"
+          );
         }
         // ..
       });
   };
-  /////
+  ////////////////////////////////////////////////////////////////////////////////////////
   const googleProvider = new GoogleAuthProvider();
-  ///////
-  const GoogleLogIn = async () => {
+  const GoogleSignUp = async () => {
     try {
       const result = await signInWithPopup(auth, googleProvider);
       console.log(result.user);
@@ -80,10 +60,10 @@ const SignUp = () => {
       console.log(error);
     }
   };
-  ///////
+  ////////////////////////////////////////////////////////////////////////////////////////
 
   const fbProvider = new FacebookAuthProvider();
-  const FbLogIn = async () => {
+  const FbSignUp = async () => {
     try {
       const result = await signInWithPopup(auth, fbProvider);
       const credantial = await FacebookAuthProvider.credentialFromResult(
@@ -91,16 +71,18 @@ const SignUp = () => {
       );
       const token = credantial.accessToken;
       let photoUrl = result.user.photoURL + "?height=500&access_token=" + token;
-      await updateProfile(auth.currentUser, { photoURL: photoUrl });
+      await updateProfile(auth.currentUser, {
+        photoURL: photoUrl,
+      });
       navigate("/yourpage");
     } catch (error) {
       console.log(error);
     }
   };
-  ////////////////////////////
+  ////////////////////////////////////////////////////////////////////////////////////////
 
   const Twitterprovider = new TwitterAuthProvider();
-  const TwitterLogIn = async () => {
+  const TwitterSignUp = async () => {
     try {
       const result = await signInWithPopup(auth, Twitterprovider);
 
@@ -114,7 +96,9 @@ const SignUp = () => {
       const user = result.user;
       let photoUrl = user.photoURL + "?height=500&access_token=" + token;
 
-      await updateProfile(auth.currentUser, { photoURL: photoUrl });
+      await updateProfile(auth.currentUser, {
+        photoURL: photoUrl,
+      });
       navigate("/yourpage");
     } catch (error) {
       // IdP data available using getAdditionalUserInfo(result)
@@ -132,7 +116,7 @@ const SignUp = () => {
     }
   };
 
-  // ///////////////////
+  ////////////////////////////////////////////////////////////////////////////////////////
   useEffect(() => {
     if (user) {
       navigate("/yourpage");
@@ -141,25 +125,37 @@ const SignUp = () => {
     }
   }, [user, navigate]);
 
-  /////////
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  ////////////////////////////////////////////////////////////////////////////////////////
 
   return (
     <div className="signUp">
       <Navigation />
       <main>
         <h3>Sign Up</h3>
-        <form>
+        <form action="submit" onSubmit={EmailSignUp}>
           <input
             type="email"
             id="email"
             name="email"
             placeholder="Email"
             onChange={(e) => setEmail(e.target.value)}
+            value={email}
+            ref={ref}
             required
           />
-
+          {inUse.length > 1 ? (
+            <div
+              style={{
+                color: "#EE5252",
+                fontSize: "14px",
+                fontFamily: "Avenir - Roman",
+              }}
+            >
+              {inUse}
+            </div>
+          ) : (
+            <></>
+          )}
           <input
             type="password"
             id="password"
@@ -169,11 +165,10 @@ const SignUp = () => {
             onChange={(e) => {
               setPassword(e.target.value);
             }}
+            value={password}
             required
           />
-          <button type="submit" onClick={EmailLogIn}>
-            Continue with email
-          </button>
+          <button type="submit">Continue with email</button>
         </form>
         <div className="breakFlow">
           <hr />
@@ -181,17 +176,29 @@ const SignUp = () => {
           <hr />
         </div>
         <div class="signUpButtons">
-          <button onClick={TwitterLogIn}>
-            <span dangerouslySetInnerHTML={{ __html: Icons.twitter }} />
+          <button onClick={TwitterSignUp}>
+            <span
+              dangerouslySetInnerHTML={{
+                __html: Icons.twitter,
+              }}
+            />
             <span className="ml-5">Sign up with Twitter</span>
           </button>
-          <button onClick={GoogleLogIn}>
-            <span dangerouslySetInnerHTML={{ __html: Icons.google }} />
+          <button onClick={GoogleSignUp}>
+            <span
+              dangerouslySetInnerHTML={{
+                __html: Icons.google,
+              }}
+            />
             <span className="ml-5">Sign up with Google</span>
           </button>
-          <button onClick={FbLogIn}>
+          <button onClick={FbSignUp}>
             {" "}
-            <span dangerouslySetInnerHTML={{ __html: Icons.facebook }} />
+            <span
+              dangerouslySetInnerHTML={{
+                __html: Icons.facebook,
+              }}
+            />
             <span className="ml-5">Sign up with Facebook</span>
           </button>
 
@@ -206,8 +213,9 @@ const SignUp = () => {
           </button> */}
         </div>
         <div className="endNotes roman">
-          By signing up, you agree to our terms and privacy policy. You must be
-          at least 18 years old to start a page.
+          By signing up, you agree to our <b>Terms</b> and <b>Privacy Policy</b>
+          . Creators or content that violate our terms <b>will </b>be
+          unpublished.
         </div>
       </main>
       <Sticky />

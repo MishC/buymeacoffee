@@ -18,14 +18,6 @@
   margin: 10px auto 50px;
 }
 
-.signUp nav {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 10px 0px;
-  margin: 20px 60px;
-  font-size: 18px;
-}
 .signUp nav button {
   border-radius: 30px;
   font-weight: 500;
@@ -59,7 +51,7 @@
   padding: 10px 20px;
   border-color: black;
   margin: 0;
-  max-width: 20vw;
+  max-width: 30vw;
 }
 .signUp input[type],
 .signUp input[type]:active,
@@ -83,7 +75,7 @@
 
   margin: 50px auto;
   color: black;
-  max-width: 20vw;
+  max-width: 30vw;
 }
 hr {
   border: 2px solid #b6abab;
@@ -94,7 +86,7 @@ hr {
   flex-direction: column;
   gap: 10px;
   align-items: center;
-  width: 20vw;
+  width: 30vw;
   justify-content: center;
   text-align: center;
   margin: 0 auto 20px;
@@ -106,9 +98,9 @@ hr {
 }
 
 .endNotes {
-  color: #717171;
+  color: #222222;
   text-align: center;
-  max-width: 20vw;
+  max-width: 380px;
   margin: auto;
   font-size: 14px;
 }
@@ -129,7 +121,7 @@ hr {
     max-width: 80vw;
   }
 }
-@media (min-width: 600px) and (max-width: 1100px) {
+@media (min-width: 600px) and (max-width: 1200px) {
   .signUpButtons {
     width: 40vw;
   }

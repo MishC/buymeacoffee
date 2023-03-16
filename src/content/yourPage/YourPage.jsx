@@ -14,9 +14,9 @@ export default function YourPage() {
   if (!user) navigate("/signup");
   if (user) {
     return (
-      <div>
+      <div className="yourPage">
         <Navigation />
-        <h1>Complete your page</h1>
+        <h3>Complete your page</h3>
       </div>
     );
   }
