@@ -51,7 +51,7 @@
   padding: 10px 20px;
   border-color: black;
   margin: 0;
-  max-width: 30vw;
+  max-width: 20vw;
 }
 .signUp input[type],
 .signUp input[type]:active,
@@ -75,7 +75,7 @@
 
   margin: 50px auto;
   color: black;
-  max-width: 30vw;
+  max-width: 20vw;
 }
 hr {
   border: 2px solid #b6abab;
@@ -86,7 +86,7 @@ hr {
   flex-direction: column;
   gap: 10px;
   align-items: center;
-  width: 30vw;
+  width: 20vw;
   justify-content: center;
   text-align: center;
   margin: 0 auto 20px;
