@@ -61,7 +61,7 @@ const SignUp = () => {
 
   return (
     <div className="signUp">
-      <Navigation />
+      <Navigation method="Login" str="Already have an account?" />
       <main>
         <h3>Sign Up</h3>
         <form action="submit" onSubmit={handleEmailSignUp}>
@@ -118,9 +118,7 @@ const SignUp = () => {
           {/* Is it a way to get Apple Developer Programme for free?
            Sign In with Apple can only be configured by members of the Apple Developer Program.
            https://firebase.google.com/docs/auth/web/apple?authuser=0&hl=en
-
-          
-          <button>
+           <button>
             <span dangerouslySetInnerHTML={{ __html: Icons.apple }} />
             <span className="ml-5">Sign up with Apple</span>
           </button> */}

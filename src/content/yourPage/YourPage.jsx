@@ -19,7 +19,7 @@ export default function YourPage() {
   if (user) {
     return (
       <div className="yourPage">
-        <Navigation />
+        <Navigation method="Logout" />
         <h3>Complete your page</h3>
       </div>
     );
