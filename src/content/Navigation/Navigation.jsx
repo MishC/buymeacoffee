@@ -20,7 +20,7 @@ const Navigation = () => {
           </div>
         ) : (
           <div>
-            <span class="roman">Already have an account? &nbsp;</span>
+            <span className="roman">Already have an account? &nbsp;</span>
 
             <button>Login</button>
           </div>

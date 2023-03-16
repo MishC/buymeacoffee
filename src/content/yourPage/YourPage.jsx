@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navigation from "../Navigation/Navigation";
 import { useNavigate } from "react-router-dom";
 
@@ -9,9 +9,13 @@ export default function YourPage() {
   const [user, loading] = useAuthState(auth);
   const navigate = useNavigate();
 
-  console.log(user);
-  if (loading) return <h1>Loading</h1>;
-  if (!user) navigate("/signup");
+  useEffect(() => {
+    if (!user) {
+      navigate("/signup");
+    }
+  }, [user, navigate]);
+  if (loading) return <h1>Loading...</h1>;
+
   if (user) {
     return (
       <div className="yourPage">

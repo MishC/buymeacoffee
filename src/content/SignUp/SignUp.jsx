@@ -3,19 +3,19 @@ import { useNavigate } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 
 import "./SignUp.css";
+import SignUpButtons from "./SignUpButtons";
 import Navigation from "../Navigation/Navigation.jsx";
 import Sticky from "../Sticky/Sticky.jsx";
 import * as Icons from "../../assets/SVGs/AllIconsSVG";
 
 import { auth } from "../../utils/firebase";
+
 import {
-  signInWithPopup,
-  GoogleAuthProvider,
-  FacebookAuthProvider,
-  TwitterAuthProvider,
-  createUserWithEmailAndPassword,
-  updateProfile,
-} from "firebase/auth";
+  GoogleSignUp,
+  TwitterSignUp,
+  FacebookSignUp,
+  EmailSignUp,
+} from "../functions/SignUpFunc";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -28,94 +28,26 @@ const SignUp = () => {
 
   ////////////////////////////////////////////////////////////////////////////////////////
 
-  const EmailSignUp = async (e) => {
+  const handleGoogleSignUp = (e) => {
     e.preventDefault();
-    await createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        navigate("/yourpage");
+    GoogleSignUp(navigate);
+  };
 
-        // ...
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        if (error.code === "auth/email-already-in-use") {
-          setInUse(
-            "An account with this email already exists. Please try to log in"
-          );
-        }
-        // ..
-      });
+  ////////////////////////////////////////////////////////////////////////////////////////
+  const handleFacebookSignUp = (e) => {
+    e.preventDefault();
+    FacebookSignUp(navigate);
   };
   ////////////////////////////////////////////////////////////////////////////////////////
-  const googleProvider = new GoogleAuthProvider();
-  const GoogleSignUp = async () => {
-    try {
-      const result = await signInWithPopup(auth, googleProvider);
-      console.log(result.user);
-      navigate("/yourpage");
-    } catch (error) {
-      console.log(error);
-    }
+  const handleTwitterSignUp = (e) => {
+    e.preventDefault();
+    TwitterSignUp(navigate);
   };
-  ////////////////////////////////////////////////////////////////////////////////////////
-
-  const fbProvider = new FacebookAuthProvider();
-  const FbSignUp = async () => {
-    try {
-      const result = await signInWithPopup(auth, fbProvider);
-      const credantial = await FacebookAuthProvider.credentialFromResult(
-        result
-      );
-      const token = credantial.accessToken;
-      let photoUrl = result.user.photoURL + "?height=500&access_token=" + token;
-      await updateProfile(auth.currentUser, {
-        photoURL: photoUrl,
-      });
-      navigate("/yourpage");
-    } catch (error) {
-      console.log(error);
-    }
+  //console.log(handleTwitterSignUp.name);
+  const handleEmailSignUp = (e) => {
+    e.preventDefault();
+    EmailSignUp(email, password, setInUse, navigate);
   };
-  ////////////////////////////////////////////////////////////////////////////////////////
-
-  const Twitterprovider = new TwitterAuthProvider();
-  const TwitterSignUp = async () => {
-    try {
-      const result = await signInWithPopup(auth, Twitterprovider);
-
-      // This gives you a the Twitter OAuth 1.0 Access Token and Secret.
-      // You can use these server side with your app's credentials to access the Twitter API.
-      const credential = TwitterAuthProvider.credentialFromResult(result);
-      const token = credential.accessToken;
-      // const secret = credential.secret;
-
-      // The signed-in user info.
-      const user = result.user;
-      let photoUrl = user.photoURL + "?height=500&access_token=" + token;
-
-      await updateProfile(auth.currentUser, {
-        photoURL: photoUrl,
-      });
-      navigate("/yourpage");
-    } catch (error) {
-      // IdP data available using getAdditionalUserInfo(result)
-      // ...
-
-      // Handle Errors here.
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log(errorCode + errorMessage);
-      // The email of the user's account used.
-      // const email = error.customData.email;
-      // The AuthCredential type that was used.
-      // const credential = TwitterAuthProvider.credentialFromError(error);
-      // ...
-    }
-  };
-
   ////////////////////////////////////////////////////////////////////////////////////////
   useEffect(() => {
     if (user) {
@@ -132,7 +64,7 @@ const SignUp = () => {
       <Navigation />
       <main>
         <h3>Sign Up</h3>
-        <form action="submit" onSubmit={EmailSignUp}>
+        <form action="submit" onSubmit={handleEmailSignUp}>
           <input
             type="email"
             id="email"
@@ -175,32 +107,13 @@ const SignUp = () => {
           <span className="mx-4">or signup with</span>
           <hr />
         </div>
-        <div class="signUpButtons">
-          <button onClick={TwitterSignUp}>
-            <span
-              dangerouslySetInnerHTML={{
-                __html: Icons.twitter,
-              }}
-            />
-            <span className="ml-5">Sign up with Twitter</span>
-          </button>
-          <button onClick={GoogleSignUp}>
-            <span
-              dangerouslySetInnerHTML={{
-                __html: Icons.google,
-              }}
-            />
-            <span className="ml-5">Sign up with Google</span>
-          </button>
-          <button onClick={FbSignUp}>
-            {" "}
-            <span
-              dangerouslySetInnerHTML={{
-                __html: Icons.facebook,
-              }}
-            />
-            <span className="ml-5">Sign up with Facebook</span>
-          </button>
+        <div className="signUpButtons">
+          <SignUpButtons provider={handleTwitterSignUp} icon={Icons.twitter} />
+          <SignUpButtons provider={handleGoogleSignUp} icon={Icons.google} />
+          <SignUpButtons
+            provider={handleFacebookSignUp}
+            icon={Icons.facebook}
+          />
 
           {/* Is it a way to get Apple Developer Programme for free?
            Sign In with Apple can only be configured by members of the Apple Developer Program.
