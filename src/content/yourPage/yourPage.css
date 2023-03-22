@@ -3,3 +3,33 @@
   font-size: 30px;
   margin: 10px auto 50px;
 }
+
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --background-color: #f8f9fa;
+}
+/* style your form elements here */
+.yourPage form {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  background-color: var(--background-color);
+  border-radius: 5px;
+}
+.yourPage label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: var(--secondary-color);
+}
+.yourPage input,
+textarea {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 20px;
+  background-color: white;
+}
