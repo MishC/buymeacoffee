@@ -24,7 +24,7 @@ const SignUp = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [inUse, setInUse] = useState("");
+  const [error, setError] = useState(null);
 
   ////////////////////////////////////////////////////////////////////////////////////////
 
@@ -46,7 +46,7 @@ const SignUp = () => {
   //console.log(handleTwitterSignUp.name);
   const handleEmailSignUp = (e) => {
     e.preventDefault();
-    EmailSignUp(email, password, setInUse, navigate);
+    EmailSignUp(email, password, setError, navigate);
   };
   ////////////////////////////////////////////////////////////////////////////////////////
   useEffect(() => {
@@ -75,7 +75,7 @@ const SignUp = () => {
             ref={ref}
             required
           />
-          {inUse.length > 1 ? (
+          {error ? (
             <div
               style={{
                 color: "#EE5252",
@@ -83,7 +83,7 @@ const SignUp = () => {
                 fontFamily: "Avenir - Roman",
               }}
             >
-              {inUse}
+              {error}
             </div>
           ) : (
             <></>
