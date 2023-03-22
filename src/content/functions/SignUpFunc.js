@@ -13,7 +13,7 @@ const googleProvider = new GoogleAuthProvider();
 export const GoogleSignUp = async (navigate) => {
   try {
     const result = await signInWithPopup(auth, googleProvider);
-    console.log(result.user);
+    //console.log(result.user);
     navigate("/yourpage");
   } catch (error) {
     console.log(error);
@@ -74,23 +74,37 @@ export const FacebookSignUp = async (navigate) => {
 };
 ////////////////////////////////////////////////////////////////////////////////////////
 
-export const EmailSignUp = async (email, password, setInUse, navigate) => {
-  await createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      // Signed in
-      //const user = userCredential.user;
-      navigate("/yourpage");
+export const EmailSignUp = async (email, password, setError, navigate) => {
+  try {
+    setError(null);
 
-      // ...
-    })
-    .catch((error) => {
-      //const errorCode = error.code;
-      //const errorMessage = error.message;
-      if (error.code === "auth/email-already-in-use") {
-        setInUse(
-          "An account with this email already exists. Please try to log in"
-        );
-      }
-      // ..
-    });
+    const res = await createUserWithEmailAndPassword(auth, email, password);
+    if (!res) {
+      setError("Could not complete Sign up");
+    }
+    await res.user.updateProfile();
+
+    // Signed in
+    //const user = userCredential.user;
+    await navigate("/yourpage");
+
+    // ...
+  } catch (error) {
+    //const errorCode = error.code;
+    //const errorMessage = error.message;
+    if (error.code === "auth/email-already-in-use") {
+      setError(
+        "An account with this email already exists. Please try to log in"
+      );
+    } else if (error.code === "auth/invalid-password") {
+      setError(
+        "Invalid password. It must be a string with at least six characters."
+      );
+    } else if (error.code === "auth / user - not - found") {
+      setError("Invalid username or password.");
+    } else {
+      setError(error.code);
+    }
+    // ..
+  }
 };
