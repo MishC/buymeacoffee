@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import "./startMyPage.css";
@@ -6,8 +6,12 @@ import "./startMyPage.css";
 const StartMyPage = () => {
   const navigate = useNavigate();
 
-  function handleClick() {
-    navigate("/signup");
+  const [username, setUserName] = useState("");
+
+  function handleClick(e) {
+    e.preventDefault();
+    const url = `/signup?username=${username}`;
+    navigate(url);
   }
 
   return (
@@ -19,7 +23,11 @@ const StartMyPage = () => {
       </h3>
       <div className="makePage border ">
         <span className="">buymeacoffee.com/</span>
-        <input className="" placeholder="yourname" />
+        <input
+          className=""
+          placeholder="yourname"
+          onChange={(e) => setUserName(e.target.value)}
+        />
         <button className="btn" onClick={handleClick}>
           <span className=" inline-flex relative">
             {" "}
